@@ -9,6 +9,20 @@
 }
 
 
+int Sieve(string[] arrA, string[] arrB, int k=0)
+{
+    for(int i = 0; i < arrA.Length; i ++)
+    {
+        if(arrA[i].Length <= 3)
+        {
+            arrB[k] = arrA[i];
+            k++;
+        }
+    }
+    return k;
+}
+
+
 void PrintArray(string[] arr)
 {
     Console.Write("[");
@@ -25,7 +39,9 @@ Console.Write("Введите длину исходного массива: ");
 int aLength = Convert.ToInt32(Console.ReadLine());
 string[] A = new string[aLength]; // исходный массив, заполняемый пользователем
 string[] B = new string[aLength]; // промежуточный массив с элементами длиной меньше 3
+int counter = 0; // количество элементов массива B нужной длины
 
 FillArray(A, B);
+counter = Sieve(A, B, counter);
 
-PrintArray(A);
+PrintArray(B);
