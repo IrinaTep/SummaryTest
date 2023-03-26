@@ -1,4 +1,5 @@
-﻿void FillArray(string[] arrA, string[] arrB)
+﻿
+void FillArray(string[] arrA, string[] arrB)
 {
     for(int i = 0; i < arrA.Length; i ++)
     {
@@ -23,6 +24,13 @@ int Sieve(string[] arrA, string[] arrB, int k=0)
 }
 
 
+void FillResult(string[] arrB, string[] arrR, int k)
+{
+    for(int i = 0; i < k; i ++)
+        arrR[i] = arrB[i];
+}
+
+
 void PrintArray(string[] arr)
 {
     Console.Write("[");
@@ -43,5 +51,7 @@ int counter = 0; // количество элементов массива B н�
 
 FillArray(A, B);
 counter = Sieve(A, B, counter);
+string[] Result = new string[counter]; // 
+FillResult(B, Result, counter);
 
-PrintArray(B);
+PrintArray(Result);
